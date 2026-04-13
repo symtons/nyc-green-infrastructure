@@ -5,7 +5,7 @@
 project:
   name: nyc-green-infrastructure
   study_area: nyc_5_boroughs
-  crs: EPSG:4326
+  crs: EPSG:32618          # UTM Zone 18N (meters) — set in preprocessing
   target_resolution_m: 30
 
 paths:
@@ -18,22 +18,21 @@ paths:
   raw:
     landsat_manhattan: data/raw/landsat/manhattan_landsat.tif
     landsat_brooklyn:  data/raw/landsat/brooklyn_landsat.tif
-    lst_merged:        data/raw/landsat/manhattan_brooklyn_lst.tif
-    worldcover:        data/raw/landcover/manhattan_brooklyn_worldcover.tif
-    boundaries:        data/raw/boundaries/manhattan_brooklyn_boundaries.geojson
+    lst_merged:        data/raw/landsat/nyc_lst.tif
+    worldcover:        data/raw/landcover/manhattan_worldcover.tif
+    boundaries:        data/raw/boundaries/nyc_boroughs.geojson
 
-# ESA WorldCover -> 4-class simplified taxonomy
+# ESA WorldCover -> 3-class simplified taxonomy
+# bare/open dropped: <1% of NYC land, zero tiles hit 5% coverage in v2 diagnostics
 landcover_classes:
   vegetation: 0
   water: 1
   built_up: 2
-  bare_open: 3
 
 landcover_class_names:
   0: Vegetation
   1: Water
   2: Built-up
-  3: Bare/Open
 
 # Priority scoring weights (must sum to 1.0)
 priority_weights:
@@ -54,13 +53,13 @@ model:
   encoder: resnet18
   encoder_weights: imagenet
   in_channels: 5
-  num_classes: 4
+  num_classes: 3
   tile_size: 256
   batch_size: 16
   learning_rate: 1.0e-4
   max_epochs: 60
   early_stopping_patience: 10
-  focal_loss_alpha: [0.5, 1.5, 1.5, 2.0]
+  focal_loss_alpha: [1.0, 1.5, 0.8]
   focal_loss_gamma: 2.0
   use_balanced_sampler: true
   val_split: 0.15
