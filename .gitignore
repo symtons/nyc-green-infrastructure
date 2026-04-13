@@ -1,0 +1,62 @@
+# ============================================================
+# Python
+# ============================================================
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ============================================================
+# Data — NEVER commit raw data or large intermediate outputs
+# ============================================================
+data/raw/
+data/interim/
+data/processed/
+
+# Allow tracking the folder structure itself via .gitkeep files
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# ============================================================
+# Outputs — regenerable, don't bloat the repo
+# ============================================================
+outputs/figures/*
+outputs/tables/*
+outputs/reports/*
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+!outputs/reports/.gitkeep
+
+# ============================================================
+# Models — trained weights are large and regenerable
+# ============================================================
+models/*.pt
+models/*.pth
+models/*.h5
+models/*.pkl
+
+# ============================================================
+# Credentials & secrets — NEVER commit these
+# ============================================================
+*.env
+.env.*
+credentials.json
+*_key.json
+secrets.yaml
+
+# ============================================================
+# OS / Editor cruft
+# ============================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
