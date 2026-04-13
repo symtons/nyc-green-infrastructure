@@ -15,9 +15,16 @@ __pycache__/
 # ============================================================
 # Data — NEVER commit raw data or large intermediate outputs
 # ============================================================
-data/raw/
-data/interim/
-data/processed/
+data/*
+!data/raw/
+!data/interim/
+!data/processed/
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
 
 # Allow tracking the folder structure itself via .gitkeep files
 !data/raw/.gitkeep
