@@ -1,0 +1,170 @@
+{
+  "weights": {
+    "heat": 0.25,
+    "vegetation_deficit": 0.3,
+    "built_up": 0.2,
+    "equity": 0.25
+  },
+  "thresholds": {
+    "mode": "percentile",
+    "percentiles": {
+      "critical": 95,
+      "high": 85,
+      "moderate": 65,
+      "low": 40
+    },
+    "critical": 80,
+    "high": 60,
+    "moderate": 40,
+    "low": 20
+  },
+  "runs": {
+    "worldcover": {
+      "label": "worldcover",
+      "weights": {
+        "heat": 0.25,
+        "vegetation_deficit": 0.3,
+        "built_up": 0.2,
+        "equity": 0.25
+      },
+      "cutoffs_used": {
+        "critical": 93.11678314208984,
+        "high": 87.49382781982422,
+        "moderate": 78.7747802734375,
+        "low": 64.61918640136719
+      },
+      "score_stats": {
+        "valid_pixels": 821358,
+        "min": 10.25,
+        "max": 100.0,
+        "mean": 65.44999694824219,
+        "median": 70.52468872070312,
+        "p25": 52.090667724609375,
+        "p75": 83.2032241821289
+      },
+      "zone_summary": {
+        "None / Excluded": {
+          "code": 0,
+          "pixels": 1940781,
+          "percent": 79.74951470991898,
+          "area_ha": 174670.29
+        },
+        "Low": {
+          "code": 1,
+          "pixels": 205338,
+          "percent": 8.437637142730347,
+          "area_ha": 18480.42
+        },
+        "Moderate": {
+          "code": 2,
+          "pixels": 164272,
+          "percent": 6.750175460511934,
+          "area_ha": 14784.48
+        },
+        "High": {
+          "code": 3,
+          "pixels": 82137,
+          "percent": 3.3751288217107525,
+          "area_ha": 7392.33
+        },
+        "Critical": {
+          "code": 4,
+          "pixels": 41068,
+          "percent": 1.6875438651279835,
+          "area_ha": 3696.12
+        }
+      },
+      "score_path": "C:\\nyc-green-infrastructure\\outputs\\maps\\priority_score_worldcover.tif",
+      "zones_path": "C:\\nyc-green-infrastructure\\outputs\\maps\\priority_zones_worldcover.tif"
+    },
+    "model": {
+      "label": "model",
+      "weights": {
+        "heat": 0.25,
+        "vegetation_deficit": 0.3,
+        "built_up": 0.2,
+        "equity": 0.25
+      },
+      "cutoffs_used": {
+        "critical": 93.17526245117188,
+        "high": 87.57518768310547,
+        "moderate": 79.35577392578125,
+        "low": 65.50519561767578
+      },
+      "score_stats": {
+        "valid_pixels": 821934,
+        "min": 10.25,
+        "max": 100.0,
+        "mean": 65.76129913330078,
+        "median": 71.54914855957031,
+        "p25": 52.83841323852539,
+        "p75": 83.49870300292969
+      },
+      "zone_summary": {
+        "None / Excluded": {
+          "code": 0,
+          "pixels": 1940436,
+          "percent": 79.73533815801801,
+          "area_ha": 174639.24
+        },
+        "Low": {
+          "code": 1,
+          "pixels": 205483,
+          "percent": 8.443595403674234,
+          "area_ha": 18493.47
+        },
+        "Moderate": {
+          "code": 2,
+          "pixels": 164386,
+          "percent": 6.7548598863574725,
+          "area_ha": 14794.74
+        },
+        "High": {
+          "code": 3,
+          "pixels": 82194,
+          "percent": 3.3774710346335217,
+          "area_ha": 7397.46
+        },
+        "Critical": {
+          "code": 4,
+          "pixels": 41097,
+          "percent": 1.6887355173167609,
+          "area_ha": 3698.73
+        }
+      },
+      "score_path": "C:\\nyc-green-infrastructure\\outputs\\maps\\priority_score_model.tif",
+      "zones_path": "C:\\nyc-green-infrastructure\\outputs\\maps\\priority_zones_model.tif"
+    }
+  },
+  "comparison": {
+    "total_compared": 2433596,
+    "exact_match": 2362868,
+    "exact_agreement_pct": 97.0936835859362,
+    "within_one_category": 2427309,
+    "within_one_pct": 99.741658023764,
+    "pair_counts": {
+      "a=0,b=0": 1917332,
+      "a=0,b=1": 21255,
+      "a=0,b=2": 2079,
+      "a=0,b=3": 106,
+      "a=0,b=4": 9,
+      "a=1,b=0": 21783,
+      "a=1,b=1": 173472,
+      "a=1,b=2": 7849,
+      "a=1,b=3": 2007,
+      "a=1,b=4": 227,
+      "a=2,b=0": 1300,
+      "a=2,b=1": 10635,
+      "a=2,b=2": 151977,
+      "a=2,b=4": 360,
+      "a=3,b=0": 21,
+      "a=3,b=1": 106,
+      "a=3,b=2": 2424,
+      "a=3,b=3": 79586,
+      "a=4,b=1": 15,
+      "a=4,b=2": 57,
+      "a=4,b=3": 495,
+      "a=4,b=4": 40501
+    }
+  }
+}

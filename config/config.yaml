@@ -41,7 +41,15 @@ priority_weights:
   built_up: 0.20
   equity: 0.25
 
+
 priority_thresholds:
+  mode: percentile
+  percentiles:
+    critical: 95    # top 5% of valid pixels
+    high: 85        # next 10%
+    moderate: 65    # next 20%
+    low: 40         # next 25%
+
   critical: 80
   high: 60
   moderate: 40
