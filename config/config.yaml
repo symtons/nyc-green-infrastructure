@@ -1,0 +1,41 @@
+# ============================================================
+# NYC Green Infrastructure Pipeline — main config
+# ============================================================
+
+project:
+  name: nyc-green-infrastructure
+  study_area: manhattan_brooklyn
+  crs: EPSG:4326          # working CRS (WGS84)
+  target_resolution_m: 30 # Landsat-native resolution
+
+paths:
+  raw:
+    landsat_manhattan: data/raw/landsat/manhattan_landsat.tif
+    landsat_brooklyn:  data/raw/landsat/brooklyn_landsat.tif
+    lst_merged:        data/raw/landsat/manhattan_brooklyn_lst.tif
+    worldcover:        data/raw/landcover/manhattan_brooklyn_worldcover.tif
+    boundaries:        data/raw/boundaries/manhattan_brooklyn_boundaries.geojson
+  interim: data/interim
+  processed: data/processed
+  outputs: outputs
+
+# Land cover class mapping (ESA WorldCover -> simplified 4-class)
+landcover_classes:
+  vegetation: 0   # tree cover, shrubland, grassland -> 0
+  water: 1        # permanent water bodies, wetlands -> 1
+  built_up: 2     # built-up -> 2
+  bare_open: 3    # bare/sparse, cropland -> 3
+
+# Priority scoring weights (must sum to 1.0)
+# v2 ADDITION: equity layer
+priority_weights:
+  heat: 0.25
+  vegetation_deficit: 0.30
+  built_up: 0.20
+  equity: 0.25          # NEW: social vulnerability
+
+priority_thresholds:
+  critical: 80
+  high: 60
+  moderate: 40
+  low: 20
