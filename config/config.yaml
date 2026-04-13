@@ -4,38 +4,65 @@
 
 project:
   name: nyc-green-infrastructure
-  study_area: manhattan_brooklyn
-  crs: EPSG:4326          # working CRS (WGS84)
-  target_resolution_m: 30 # Landsat-native resolution
+  study_area: nyc_5_boroughs
+  crs: EPSG:4326
+  target_resolution_m: 30
 
 paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  outputs_dir: outputs
+  models_dir: models
+
   raw:
     landsat_manhattan: data/raw/landsat/manhattan_landsat.tif
     landsat_brooklyn:  data/raw/landsat/brooklyn_landsat.tif
     lst_merged:        data/raw/landsat/manhattan_brooklyn_lst.tif
     worldcover:        data/raw/landcover/manhattan_brooklyn_worldcover.tif
     boundaries:        data/raw/boundaries/manhattan_brooklyn_boundaries.geojson
-  interim: data/interim
-  processed: data/processed
-  outputs: outputs
 
-# Land cover class mapping (ESA WorldCover -> simplified 4-class)
+# ESA WorldCover -> 4-class simplified taxonomy
 landcover_classes:
-  vegetation: 0   # tree cover, shrubland, grassland -> 0
-  water: 1        # permanent water bodies, wetlands -> 1
-  built_up: 2     # built-up -> 2
-  bare_open: 3    # bare/sparse, cropland -> 3
+  vegetation: 0
+  water: 1
+  built_up: 2
+  bare_open: 3
+
+landcover_class_names:
+  0: Vegetation
+  1: Water
+  2: Built-up
+  3: Bare/Open
 
 # Priority scoring weights (must sum to 1.0)
-# v2 ADDITION: equity layer
 priority_weights:
   heat: 0.25
   vegetation_deficit: 0.30
   built_up: 0.20
-  equity: 0.25          # NEW: social vulnerability
+  equity: 0.25
 
 priority_thresholds:
   critical: 80
   high: 60
   moderate: 40
   low: 20
+
+# Model training configuration
+model:
+  architecture: unet
+  encoder: resnet18
+  encoder_weights: imagenet
+  in_channels: 5
+  num_classes: 4
+  tile_size: 256
+  batch_size: 16
+  learning_rate: 1.0e-4
+  max_epochs: 60
+  early_stopping_patience: 10
+  focal_loss_alpha: [0.5, 1.5, 1.5, 2.0]
+  focal_loss_gamma: 2.0
+  use_balanced_sampler: true
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
