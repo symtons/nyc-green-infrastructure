@@ -3,16 +3,12 @@
     "critical_ha": 3696.12,
     "high_ha": 7392.33,
     "portfolio_csv": "C:\\nyc-green-infrastructure\\outputs\\tables\\interventions_worldcover.csv",
-    "total_cost_usd": 957552500.0,
-    "total_carbon_t_yr": 181107.8,
-    "cost_per_t_carbon": 5287.196354878145
+    "total_carbon_t_yr": 181107.8
   },
   "model": {
     "critical_ha": 3698.73,
     "high_ha": 7397.46,
     "portfolio_csv": "C:\\nyc-green-infrastructure\\outputs\\tables\\interventions_model.csv",
-    "total_cost_usd": 958228000.0,
-    "total_carbon_t_yr": 181235.95,
-    "cost_per_t_carbon": 5287.185020411237
+    "total_carbon_t_yr": 181235.95
   }
 }

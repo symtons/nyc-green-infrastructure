@@ -11,6 +11,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
+.streamlit/secrets.toml
 
 # ============================================================
 # Data — NEVER commit raw data or large intermediate outputs

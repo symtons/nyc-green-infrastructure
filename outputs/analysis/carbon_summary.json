@@ -1,0 +1,45 @@
+{
+  "tiers": [
+    {
+      "name": "Dense vegetation",
+      "ndvi_range": "NDVI >= 0.6",
+      "pixels": 158699,
+      "area_ha": 14282.91,
+      "rate_t_per_ha_yr": 10.0,
+      "carbon_t_per_yr": 142829.1
+    },
+    {
+      "name": "Moderate vegetation",
+      "ndvi_range": "0.3 <= NDVI < 0.6",
+      "pixels": 66475,
+      "area_ha": 5982.75,
+      "rate_t_per_ha_yr": 5.0,
+      "carbon_t_per_yr": 29913.8
+    },
+    {
+      "name": "Sparse vegetation",
+      "ndvi_range": "0.1 <= NDVI < 0.3",
+      "pixels": 1396,
+      "area_ha": 125.64,
+      "rate_t_per_ha_yr": 2.0,
+      "carbon_t_per_yr": 251.3
+    }
+  ],
+  "totals": {
+    "vegetation_area_ha": 20649.15,
+    "carbon_t_per_yr": 172994.1,
+    "area_excluded_low_ndvi_ha": 257.85
+  },
+  "equivalents": {
+    "cars_per_year": 37607,
+    "tree_seedlings_10yr": 2883236,
+    "homes_per_year": 23066
+  },
+  "methodology": {
+    "ndvi_source": "Landsat 9 red/NIR bands, summer 2024 median composite",
+    "vegetation_source": "U-Net predicted land cover, class 0 = vegetation",
+    "pixel_area_m2": 900.0,
+    "rates_source": "i-Tree Canopy literature (validated urban forestry rates)",
+    "equivalents_source": "EPA greenhouse gas equivalencies (cars, trees, homes)"
+  }
+}
